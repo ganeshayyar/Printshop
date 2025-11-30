@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Print Shop — GitHub-ready Starter
 
 This repository is a GitHub-ready starter for the Online Print Shop project.
@@ -30,3 +31,6 @@ git push -u origin main
 - Implement production-ready printer connectors
 - Add payment gateway integrations
 - Build full React + Tailwind frontend
+=======
+# Printshop
+>>>>>>> 8707c52ff6970dfeb4faa7e83acd9241da7924c0
