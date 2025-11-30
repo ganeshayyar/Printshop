@@ -1,0 +1,27 @@
+name: Node CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [ backend ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: |
+          cd ${{ matrix.service }}
+          npm ci
+      - name: Run tests (none included)
+        run: |
+          echo "No tests configured. Add tests to backend and workflow to run them."

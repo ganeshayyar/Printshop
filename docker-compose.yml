@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    volumes:
+      - mongo_data:/data/db
+  backend:
+    build: ./backend
+    ports:
+      - '4000:4000'
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/printshop
+    volumes:
+      - ./backend/uploads:/app/uploads
+    depends_on: [mongo]
+  frontend:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install --silent || true && npx serve -s . -l 3000"
+    ports:
+      - '3000:3000'
+    depends_on: [backend]
+volumes:
+  mongo_data:

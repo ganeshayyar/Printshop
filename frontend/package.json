@@ -1,0 +1,11 @@
+{
+  "name": "print-shop-frontend-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "serve -s . -l 3000"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.1"
+  }
+}
